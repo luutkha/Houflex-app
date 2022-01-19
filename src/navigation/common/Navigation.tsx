@@ -1,10 +1,10 @@
 import { NavigationContainer } from '@react-navigation/native';
 import {
+  createNativeStackNavigator,
   NativeStackNavigationOptions
 } from '@react-navigation/native-stack';
 import React from 'react';
 import { enableScreens } from 'react-native-screens';
-import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
 import { TabNavigation } from '.';
 import AppBar from './AppBar';
 
@@ -12,7 +12,7 @@ import AppBar from './AppBar';
 enableScreens();
 interface Props {}
 
-const Stack = createSharedElementStackNavigator();
+const Stack = createNativeStackNavigator();
 export type ScreenOptions = React.ComponentProps<typeof Stack.Screen>;
 const screens: ScreenOptions[] = [
   

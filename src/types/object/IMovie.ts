@@ -1,4 +1,4 @@
-export default interface IMovie {
+export  interface IMovie {
   adult: string;
   backdrop_path: string;
   genre_ids: [string];

@@ -2,6 +2,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import { COLOR } from 'constants/ui';
 import { Home } from 'features/Home';
+import { NotificationHome } from 'features/notification';
 import { SearchHome } from 'features/search';
 import { Icon, IconButton } from 'native-base';
 import React from 'react';
@@ -54,6 +55,27 @@ export const TabNavigation = (props: Props) => {
                   as={
                     <VectorIcon
                       name={focused === false ? 'search' : 'search'}
+                    />
+                  }
+                  color={focused === true ? COLOR.MAIN_COLOR : 'black'}
+                />
+              }
+            />
+          ),
+        }}
+      />
+       <Tab.Screen
+        name="notification-home"
+        component={NotificationHome}
+        options={{
+          tabBarIcon: ({focused, color}) => (
+            <IconButton
+              icon={
+                <Icon
+                  size="sm"
+                  as={
+                    <VectorIcon
+                      name={focused === false ? 'notifications-outline' : 'notifications-sharp'}
                     />
                   }
                   color={focused === true ? COLOR.MAIN_COLOR : 'black'}

@@ -1,3 +1,3 @@
-export default interface IMenu {
+export  interface IMenu {
     
 }
