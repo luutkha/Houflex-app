@@ -4,6 +4,7 @@ import {
   NativeStackNavigationOptions
 } from '@react-navigation/native-stack';
 import { DistrictDetail } from 'features';
+import { LoginPage, RegisterPage } from 'features/auth';
 import React from 'react';
 import { enableScreens } from 'react-native-screens';
 import { TabNavigation } from '.';
@@ -22,6 +23,16 @@ const screens: ScreenOptions[] = [
     component: DistrictDetail,
     options: {headerShown: true, header: AppBar},
   },
+  {
+    name: 'login',
+    component: LoginPage,
+    options: {headerShown: false, header: AppBar},
+  },
+  {
+    name: 'register',
+    component: RegisterPage,
+    options: {headerShown: false, header: AppBar},
+  },
   
 ]
 
@@ -37,7 +48,7 @@ export const Navigation = (props: Props) => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Index"
+        initialRouteName="login"
         screenOptions={{
           header: props => <AppBar {...props} />,
           gestureEnabled:true,

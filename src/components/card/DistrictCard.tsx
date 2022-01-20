@@ -33,8 +33,8 @@ export const DistrictCard = (props: Props) => {
               style={{
                 width: SCREEN.WIDTH * 0.8,
                 height: 180,
-                borderTopLeftRadius: 10,
-                borderTopRightRadius: 10,
+                borderTopLeftRadius: 20,
+                borderTopRightRadius: 20,
               }}
             />
             <Center px={3} bg="lightBlue.100">

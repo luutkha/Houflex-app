@@ -30,8 +30,8 @@ export const RoomCard = (props: Props) => {
               style={{
                 width: SCREEN.WIDTH-16 ,
                 height: 180,
-                borderTopLeftRadius: 10,
-                borderTopRightRadius: 10,
+                borderTopLeftRadius: 20,
+                borderTopRightRadius: 20,
               }}
             />
             <Center px={3} bg="lightBlue.100">
@@ -52,6 +52,6 @@ const styles = StyleSheet.create({
     container: {
       width: SCREEN.WIDTH-16 ,
       margin: 8,
-      borderRadius: 10,
+      borderRadius: 20,
     },
   });

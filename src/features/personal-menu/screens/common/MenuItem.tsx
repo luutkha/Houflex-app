@@ -2,11 +2,15 @@ import { Box, Center, Divider, HStack, Image, Text, VStack } from 'native-base';
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 
-interface Props {}
+interface Props {
+  navigation :any 
+}
 
 export const MenuItem = (props: Props) => {
+  const {navigation}= props
   const handleMenuItemPress =()=>{
     console.log('xxx')
+    navigation.navigate('login')
   }
   return (
     <TouchableOpacity onPress={()=>handleMenuItemPress()}>
