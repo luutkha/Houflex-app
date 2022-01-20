@@ -3,6 +3,7 @@ import {
   createNativeStackNavigator,
   NativeStackNavigationOptions
 } from '@react-navigation/native-stack';
+import { DistrictDetail } from 'features';
 import React from 'react';
 import { enableScreens } from 'react-native-screens';
 import { TabNavigation } from '.';
@@ -16,11 +17,11 @@ const Stack = createNativeStackNavigator();
 export type ScreenOptions = React.ComponentProps<typeof Stack.Screen>;
 const screens: ScreenOptions[] = [
   
-  // {
-  //   name: 'product2',
-  //   component: Product2,
-  //   options: {headerShown: true, header: AppBar},
-  // },
+  {
+    name: 'district-detail',
+    component: DistrictDetail,
+    options: {headerShown: true, header: AppBar},
+  },
   
 ]
 

@@ -1,22 +1,19 @@
-import {SCREEN} from 'constants/ui';
-import {Box, Center, Container, Text, VStack} from 'native-base';
+import { SCREEN } from 'constants/ui';
+import { Box, Center, Container, Text, VStack } from 'native-base';
 import React from 'react';
-import {Image, ListRenderItemInfo, StyleSheet, View} from 'react-native';
-import {TouchableOpacity} from 'react-native';
-import {IDistrict} from 'types';
-import {useNavigation} from '@react-navigation/native';
+import { Image, ListRenderItemInfo, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { IDistrict } from 'types';
 
 interface Props {
   value: ListRenderItemInfo<IDistrict>;
   navigation: any;
 }
-
-export const DistrictCard = (props: Props) => {
+export const RoomCard = (props: Props) => {
   const {value, navigation} = props;
 
   const handleDistrictCardPress = () => {
-    navigation.navigate('district-detail',{
-      district: value
+    navigation.navigate('district-detail', {
+      district: value,
     });
   };
   return (
@@ -31,7 +28,7 @@ export const DistrictCard = (props: Props) => {
                 uri: value.item.imgUrl,
               }}
               style={{
-                width: SCREEN.WIDTH * 0.8,
+                width: SCREEN.WIDTH-16 ,
                 height: 180,
                 borderTopLeftRadius: 10,
                 borderTopRightRadius: 10,
@@ -39,7 +36,7 @@ export const DistrictCard = (props: Props) => {
             />
             <Center px={3} bg="lightBlue.100">
               <VStack>
-                <Text bold>{value.item.title}</Text>
+                <Text bold>Phòng {value.item.title}</Text>
                 <Text>{value.item.description}</Text>
               </VStack>
             </Center>
@@ -50,9 +47,11 @@ export const DistrictCard = (props: Props) => {
   );
 };
 
+
 const styles = StyleSheet.create({
-  container: {
-    width: SCREEN.WIDTH * 0.8,
-    margin: 8,
-  },
-});
+    container: {
+      width: SCREEN.WIDTH-16 ,
+      margin: 8,
+      borderRadius: 10,
+    },
+  });

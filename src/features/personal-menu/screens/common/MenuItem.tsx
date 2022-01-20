@@ -1,12 +1,15 @@
 import { Box, Center, Divider, HStack, Image, Text, VStack } from 'native-base';
 import React from 'react';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity } from 'react-native';
 
 interface Props {}
 
 export const MenuItem = (props: Props) => {
+  const handleMenuItemPress =()=>{
+    console.log('xxx')
+  }
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={()=>handleMenuItemPress()}>
       <Box flex={1} bg="white" >
         <VStack flex={1} p={2}>
           <Center>

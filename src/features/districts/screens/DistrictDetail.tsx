@@ -1,27 +1,16 @@
-import {DistrictCard} from 'components';
-import {COLOR, SCREEN} from 'constants/ui';
-import {
-  Box,
-  Center,
-  HStack,
-  Icon,
-  IconButton,
-  ScrollView,
-  Text,
-} from 'native-base';
+import { RoomCard } from 'components/card/RoomCard';
+import { SCREEN } from 'constants/ui';
+import { Box, Center, ScrollView, Text } from 'native-base';
 import React from 'react';
-import {FlatList, Image} from 'react-native';
-import {IDistrict} from 'types';
-import Entypo from 'react-native-vector-icons/Entypo';
-import VectorIcon from 'react-native-vector-icons/Ionicons';
-
+import { FlatList, Image } from 'react-native';
+import { IDistrict } from 'types';
 interface Props {
+  route: any;
   navigation: any;
 }
-
-export const Home = (props: Props) => {
-  const {navigation} = props;
-
+export const DistrictDetail = (props: Props) => {
+  const {route, navigation} = props;
+  const {district} = route.params;
   const data: IDistrict[] = [
     {
       title: 'Quận 1',
@@ -129,119 +118,33 @@ export const Home = (props: Props) => {
         'Maecenas fermentum aliquam tellus, id mollis orci rutrum ut.',
     },
   ];
-  const data2: IDistrict[] = [
-    {
-      title: 'Quận 12',
-      imgUrl:
-        'http://channel.vcmedia.vn/prupload/270/2018/12/img_201812150933239359.jpg',
-      description:
-        'Maecenas fermentum aliquam tellus, id mollis orci rutrum ut.',
-    },
-    {
-      title: 'Huyện Bình Chánh',
-      imgUrl:
-        'https://cdn.webcool.vn/cafedautu.vn/files/dungna1605/2021/03/19/huyen-binh-chanh-170816.jpg',
-      description:
-        'Maecenas fermentum aliquam tellus, id mollis orci rutrum ut.',
-    },
-    {
-      title: 'Huyện Cần Giờ',
-      imgUrl:
-        'https://vcdn-vnexpress.vnecdn.net/2021/09/12/thi-tran-can-thanh-9647-161408-1737-2562-1631433093.jpg',
-      description:
-        'Maecenas fermentum aliquam tellus, id mollis orci rutrum ut.',
-    },
-    {
-      title: 'Huyện Củ Chi',
-      imgUrl:
-        'https://liengtam.com/wp-content/uploads/2021/08/3-huyen-cu-chi-co-dien-tich-rong-va-dan-so-lon.jpg',
-      description:
-        'Maecenas fermentum aliquam tellus, id mollis orci rutrum ut.',
-    },
-    {
-      title: 'Huyện Hóc Môn',
-      imgUrl:
-        'https://img.dothi.net/2020/09/30/Z9BcC3fq/keu-goi-dau-tu-23-du-an-hoc-mon-d2d3.jpg',
-      description:
-        'Maecenas fermentum aliquam tellus, id mollis orci rutrum ut.',
-    },
-    {
-      title: 'Huyện Nhà Bè',
-      imgUrl:
-        'https://liengtam.com/wp-content/uploads/2021/08/3-huyen-nha-be-co-dien-tich-va-dan-so-lon.jpg',
-      description:
-        'Maecenas fermentum aliquam tellus, id mollis orci rutrum ut.',
-    },
-  ];
   return (
     <ScrollView>
-      <Box bg="#EEEEEE">
-        <HStack w="100%" backgroundColor={COLOR.MAIN_COLOR}>
-         
-
-          <Box w="100%" style={{alignItems: 'center'}}>
-            <IconButton
-              onPress={() => navigation.navigate('search-home')}
-              icon={
-                <Icon
-                  size="sm"
-                  as={<VectorIcon name={'search'} />}
-                  color="white"
-                />
-              }
-            />
-          </Box>
-        </HStack>
+      {/* <Center>{district.item.title}</Center> */}
+      <Box>
         <Image
           source={{
-            uri: 'https://img.freepik.com/free-vector/panorama-view-ho-chi-minh-city-vietname-with-temple-city-skyline-with-world-famous-landmarks-paper-cut-style-vector-illustration_41327-1141.jpg?size=626&ext=jpg',
+            uri: district.item.imgUrl,
           }}
           style={{
             width: SCREEN.WIDTH,
-            height: SCREEN.HEIGHT / 5,
+            height: SCREEN.HEIGHT / 3,
           }}
         />
-
-        <Box bg="white" mt={2}>
-          <Text px={5} mt={3} bold>
-            Nội thành:{' '}
-          </Text>
-          <FlatList
-            showsHorizontalScrollIndicator={false}
-            horizontal
-            data={data}
-            renderItem={item => <DistrictCard value={item} navigation={navigation}/>}
-            keyExtractor={item => item.title + ''}
-          />
-        </Box>
-
-        <Box bg="white" mt={2} mb={2}>
-          <Text px={5} mt={3} bold>
-            Ngoại thành:{' '}
-          </Text>
-
-          <FlatList
-            showsHorizontalScrollIndicator={false}
-            horizontal
-            data={data2}
-            renderItem={item => <DistrictCard value={item} navigation={navigation} />}
-            keyExtractor={item => item.title + ''}
-          />
-        </Box>
-        <Box bg="white" mt={2} mb={2}>
-          <Text px={5} mt={3} bold>
-            Đề xuất cho bạn :{' '}
-          </Text>
-
-          <FlatList
-            showsHorizontalScrollIndicator={false}
-            horizontal
-            data={data2}
-            renderItem={item => <DistrictCard value={item} navigation={navigation} />}
-            keyExtractor={item => item.title + ''}
-          />
-        </Box>
       </Box>
-    </ScrollView>
+
+      <Box mt={-10}  borderTopRadius={20} bg="#FFFFFF" h={5}></Box>
+      <Box bg="#FFFFFF">
+        <Center>
+          <Text bold>{district.item.title}</Text>
+          {/* <Text >{district.item.description}</Text> */}
+        </Center>
+        <FlatList
+          data={data}
+          renderItem={item => <RoomCard value={item} navigation={navigation} />}
+          keyExtractor={item => item.title + ''}
+        />
+      </Box>
+     </ScrollView>
   );
 };
