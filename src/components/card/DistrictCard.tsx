@@ -1,4 +1,4 @@
-import {SCREEN} from 'constants/ui';
+import {COLOR, SCREEN} from 'constants/ui';
 import {Box, Center, Container, Text, VStack} from 'native-base';
 import React from 'react';
 import {Image, ListRenderItemInfo, StyleSheet, View} from 'react-native';
@@ -32,15 +32,15 @@ export const DistrictCard = (props: Props) => {
               }}
               style={{
                 width: SCREEN.WIDTH * 0.8,
-                height: 180,
+                height: SCREEN.WIDTH*0.5,
                 borderTopLeftRadius: 20,
                 borderTopRightRadius: 20,
               }}
             />
-            <Center px={3} bg="lightBlue.100">
+            <Center px={3} bg={COLOR.MAIN_COLOR} >
               <VStack>
-                <Text bold>{value.item.title}</Text>
-                <Text>{value.item.description}</Text>
+                <Text color="white" bold>{value.item.title}</Text>
+                <Text color="white" >{value.item.description}</Text>
               </VStack>
             </Center>
           </Box>

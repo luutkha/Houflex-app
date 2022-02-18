@@ -1,4 +1,5 @@
 import {COLOR, SCREEN} from 'constants/ui';
+import { LoadingActions } from 'hooks/loading/LoadingSlice';
 import {
   Box,
   Button,
@@ -9,13 +10,23 @@ import {
   Text,
   VStack,
 } from 'native-base';
-import React from 'react';
-import {Image, StyleSheet} from 'react-native';
+import React, { useEffect } from 'react';
+import {Image, InteractionManager, StyleSheet} from 'react-native';
+import { useAppSelector } from 'redux/hooks';
 interface Props {
   navigation: any;
 }
 export const LoginPage = (props: Props) => {
   const {navigation} = props;
+  const isLoading = useAppSelector(state => state.loading.loading)
+  
+   
+  useEffect(() => {
+    
+  }, [isLoading]);
+
+  if(isLoading) return (<Center><Text>Is Loading ... </Text></Center>)
+  else
   return (
     <ScrollView>
       <Center bg="white" style={styles.container}>
@@ -53,7 +64,9 @@ export const LoginPage = (props: Props) => {
                   _pressed={{
                     backgroundColor: 'warning.500',
                   }}
-                  onPress={() => navigation.push('Index')}>
+                  onPress={() => {
+                    LoadingActions.setIsLoadingSreens()
+                    navigation.navigate('Home')}}>
                   <Text bold color="white">
                     ĐĂNG NHẬP
                   </Text>
@@ -69,7 +82,7 @@ export const LoginPage = (props: Props) => {
                     _pressed={{
                       backgroundColor: 'warning.50',
                     }}
-                    onPress={() => navigation.push('Index')}>
+                    onPress={() => navigation.navigate('Index')}>
                     <Text bold italic color="white">
                       ĐĂNG KÝ
                     </Text>

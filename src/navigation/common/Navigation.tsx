@@ -48,7 +48,7 @@ export const Navigation = (props: Props) => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="login"
+        initialRouteName="Home"
         screenOptions={{
           header: props => <AppBar {...props} />,
           gestureEnabled:true,

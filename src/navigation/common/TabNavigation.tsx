@@ -26,6 +26,7 @@ export const TabNavigation = (props: Props) => {
         name="Home"
         component={Home}
         options={{
+          
           tabBarIcon: ({focused, color}) => (
             <IconButton
               icon={
@@ -68,6 +69,7 @@ export const TabNavigation = (props: Props) => {
         name="notification-home"
         component={NotificationHome}
         options={{
+          tabBarBadge: 3,
           tabBarIcon: ({focused, color}) => (
             <IconButton
               icon={

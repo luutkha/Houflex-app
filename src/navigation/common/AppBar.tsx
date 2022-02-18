@@ -1,8 +1,7 @@
-import {Box, Center, HStack, Icon, IconButton, Text} from 'native-base';
+import { COLOR } from 'constants/ui';
+import { Box, Center, HStack, Icon, IconButton } from 'native-base';
 import React from 'react';
-import VectorIcon from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
-import {COLOR} from 'constants/ui';
 
 interface Props {
   navigation: any;

@@ -3,9 +3,12 @@ import { combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import SearchReducer from 'features/Home/SearchSlice';
 import rootSaga from './rootSage';
+import LoadingReducer from 'hooks/loading/LoadingSlice';
 
 const rootReducer = combineReducers({
-  search: SearchReducer
+  search: SearchReducer,
+  loading: LoadingReducer
+
 });
 
 const sagaMiddleWare = createSagaMiddleware();

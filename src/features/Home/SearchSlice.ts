@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {RootState} from 'redux/store';
-import {PaginationParams, SearchResponse} from 'types';
-import IMovie from 'types/object/IMovie';
+import {IMovie, PaginationParams, SearchResponse} from 'types';
+
 
 export interface SearchState {
   loading: boolean;

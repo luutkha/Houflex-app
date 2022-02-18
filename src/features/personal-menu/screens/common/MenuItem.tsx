@@ -8,6 +8,7 @@ interface Props {
 
 export const MenuItem = (props: Props) => {
   const {navigation}= props
+  // const {navigate} = useNavigation<NavigationProps>();
   const handleMenuItemPress =()=>{
     console.log('xxx')
     navigation.navigate('login')
