@@ -1,5 +1,5 @@
 import {COLOR, SCREEN} from 'constants/ui';
-import { LoadingActions } from 'hooks/loading/LoadingSlice';
+import {LoadingActions} from 'hooks/loading/LoadingSlice';
 import {
   Box,
   Button,
@@ -10,23 +10,14 @@ import {
   Text,
   VStack,
 } from 'native-base';
-import React, { useEffect } from 'react';
-import {Image, InteractionManager, StyleSheet} from 'react-native';
-import { useAppSelector } from 'redux/hooks';
+import React from 'react';
+import {Image, StyleSheet} from 'react-native';
 interface Props {
   navigation: any;
 }
 export const LoginPage = (props: Props) => {
   const {navigation} = props;
-  const isLoading = useAppSelector(state => state.loading.loading)
-  
-   
-  useEffect(() => {
-    
-  }, [isLoading]);
 
-  if(isLoading) return (<Center><Text>Is Loading ... </Text></Center>)
-  else
   return (
     <ScrollView>
       <Center bg="white" style={styles.container}>
@@ -34,11 +25,12 @@ export const LoginPage = (props: Props) => {
           w="100%"
           borderBottomRadius={35}
           bg={COLOR.MAIN_COLOR}
-          style={styles.bg__top}></Box>
+          style={styles.bg__top}
+        />
         <Box w="80%" borderRadius={20} mt={5} bg="white" style={styles.form}>
           <VStack>
             <Center>
-              <Box w="50%" style={styles.box}></Box>
+              <Box w="50%" style={styles.box} />
               <Box w="100%">
                 <Image
                   source={require('../../../assets/login.png')}
@@ -65,8 +57,9 @@ export const LoginPage = (props: Props) => {
                     backgroundColor: 'warning.500',
                   }}
                   onPress={() => {
-                    LoadingActions.setIsLoadingSreens()
-                    navigation.navigate('Home')}}>
+                    LoadingActions.setIsLoadingSreens();
+                    navigation.navigate('Home');
+                  }}>
                   <Text bold color="white">
                     ĐĂNG NHẬP
                   </Text>
@@ -102,7 +95,8 @@ export const LoginPage = (props: Props) => {
           w="100%"
           borderTopRadius={35}
           bg={COLOR.MAIN_COLOR}
-          style={styles.bg__botton}></Box>
+          style={styles.bg__botton}
+        />
       </Center>
     </ScrollView>
   );

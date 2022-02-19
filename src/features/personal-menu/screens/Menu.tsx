@@ -16,6 +16,7 @@ export const Menu = (props: Props) => {
         <>
           <Divider my="1" />
           <MenuItem navigation={navigation} />
+          <MenuItem navigation={navigation} />
         </>
       </Flex>
     </ScrollView>

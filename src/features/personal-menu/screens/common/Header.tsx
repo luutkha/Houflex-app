@@ -1,23 +1,19 @@
-import {Box, Divider, Text, View, VStack} from 'native-base';
+import {Box, Divider, View, VStack} from 'native-base';
 import React from 'react';
 import {Dimensions, ImageBackground, StyleSheet} from 'react-native';
 
-interface Props {}
 const image = {
   uri: 'https://image.freepik.com/free-vector/copy-space-gradient-orange-background_23-2148845473.jpg',
 };
 
 export const Header = (props: Props) => {
-    const windowWidth = Dimensions.get('window').width;
-    const windowHeight = Dimensions.get('window').height;
+  const windowWidth = Dimensions.get('window').width;
+  const windowHeight = Dimensions.get('window').height;
   return (
-    <Box borderBottomRadius="0" mb={5} >
+    <Box borderBottomRadius="0" mb={5}>
       <View>
         <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-          
-          <VStack space="4" divider={<Divider />}>
-           
-          </VStack>
+          <VStack space="4" divider={<Divider />}></VStack>
         </ImageBackground>
       </View>
     </Box>
@@ -35,8 +31,7 @@ const styles = StyleSheet.create({
     // borderBottomStartRadius: 200,
     width: Dimensions.get('window').width,
     height: 150,
-    overflow: 'hidden'
-    
+    overflow: 'hidden',
   },
   text: {
     color: 'white',
